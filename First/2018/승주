@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+	
+	double N;
+	int cnt = 0;
+	double n;
+
+	cin >> N;
+
+	for (int m = 0; m < 4473; m++) {
+		n = N / double(m + 1) - double(m) / 2;
+		if (n == int(n) && n > 0 && n <= N) {
+			
+			cnt++;
+		}
+	}
+	cout << cnt;
+	
+}
