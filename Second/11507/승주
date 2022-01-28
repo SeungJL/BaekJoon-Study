@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+	string str;
+	cin >> str;
+	vector <string> V;
+	int i = 0;
+	string s;
+	int P, K, H, T;
+	P = K = H = T = 13;
+	while (1) {
+		switch (str[i]) {
+		case 'P':P--; break;
+		case 'K':K--; break;
+		case 'H':H--; break;
+		case 'T':T--; break;
+		}
+		s = str.substr(i, 3);
+		V.push_back(s);
+		i += 3;
+		if (i == str.size()) {
+			break;
+		}
+	}
+	sort(V.begin(), V.end());
+	for (int i = 1; i < V.size(); i++) {
+		if (V[i] == V[i - 1]) {
+			cout << "GRESKA";
+			return 0;
+		}
+		else if(i==V.size()-1) {
+			cout << P << " " << K << " " << H << " " << T;
+		}
+	}
+}
