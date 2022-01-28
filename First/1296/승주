@@ -1,0 +1,62 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+	
+	string ye_name;
+	int L = 0; int O = 0; int V = 0; int E = 0;
+	cin >> ye_name;
+
+	for (int i = 0; i < ye_name.size(); i++) {
+		switch (ye_name[i]) {
+		case 'L': L++;
+			break;
+		case 'O': O++;
+			break;
+		case 'V': V++;
+			break;
+		case 'E': E++;
+			break;
+		}
+	}
+	int N;
+	string name;
+	string ans;
+	int sum;
+	int Max = -1;
+	int l, o, v, e;
+	l = L; o = O; v = V; e = E;
+	cin >> N;
+	for (int i = 0; i < N; i++) {
+		L = l; O = o; V = v; E = e;
+		cin >> name;
+		for (int j = 0; j < name.size(); j++) {
+			switch (name[j]) {
+			case 'L': L++;
+				break;
+			case 'O': O++;
+				break;
+			case 'V': V++;
+				break;
+			case 'E': E++;
+				break;
+			}
+		}
+		sum = (L + O) * (L + V) * (L + E) * (O + V) * (O + E) * (V + E);
+		sum %= 100;
+		if (sum > Max) {
+			Max = sum;
+			ans = name;
+		}
+		else if (sum == Max) {
+			if (name < ans) {
+				ans = name;
+			}
+		}
+	}
+	cout << ans;
+}
