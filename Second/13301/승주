@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+	long long L = 4;
+	int N;
+	long long a = 1; long long b = 1;
+	long long temp;
+	cin >> N;
+
+	for (int i = 1; i < N; i++) {
+		L += 2*b;
+		temp = b;
+		b += a;
+		a = temp;
+	}
+	cout << L;
+}
