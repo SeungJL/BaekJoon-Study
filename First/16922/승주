@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+#include <string>
+using namespace std;
+
+vector <int> ans;
+
+void Combination(vector <int> V, int cnt,int N, int depth){
+	if (N == 0) {
+		ans.push_back(cnt);
+		return;
+	}
+	
+	if (depth == V.size()) {
+		return;
+	}
+	else {
+		Combination(V, cnt + V[depth], N -1, depth);
+		Combination(V, cnt, N, depth + 1);
+	}
+}
+
+int main() {
+	int N;
+	int ans_cnt = 0;
+	cin >> N;
+	
+	vector <int> V = { 1,5,10,50 };
+	
+	Combination(V, 0, N, 0);
+	sort(ans.begin(), ans.end());
+	for (int i = 0; i < ans.size(); i++) {
+		if (i == 0) {
+			ans_cnt++;
+		}
+		else {
+			if (ans[i] != ans[i - 1]) {
+				ans_cnt++;
+			}
+		}
+	}
+	cout << ans_cnt;
+}
