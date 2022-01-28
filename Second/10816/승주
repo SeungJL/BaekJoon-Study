@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int N;
+int list[500001] = {};
+
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+	int M;
+	int a, b;
+
+	vector <int> v;
+
+	cin >> N;
+
+	for (int i = 0; i < N; i++) {
+		cin >> list[i];
+	}
+	sort(list, list + N);
+
+	cin >> M;
+	for (int i = 0; i < M; i++) {
+		cin >> b;
+		cout<<upper_bound(list, list + N, b) - lower_bound(list, list + N, b)<<" ";
+	}
+
+}
