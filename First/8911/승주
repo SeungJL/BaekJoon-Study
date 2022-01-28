@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+	int T;
+	int x = 0; int y = 1; //최초  방향
+	int x_Min, x_Max, y_Min, y_Max;
+	int temp;
+	string order;
+
+	cin >> T;
+	for (int i = 0; i < T; i++) {
+		x_Min = y_Min = x_Max = y_Max = 0;
+		int a = 0; int b = 0;
+		cin >> order;
+		for (int j = 0; j < order.length(); j++) {
+			switch (order[j]) {
+			case 'F':
+				a += x;
+				b += y;
+				break;
+			case 'B':
+				a -= x;
+				b -= y;
+				break;
+			case 'L':
+				temp = x;
+				x = -y;
+				y = temp;
+				break;
+			case 'R':
+				temp = x;
+				x = y;
+				y = -temp;
+				break;
+
+			}
+			if (a < x_Min) { x_Min = a; }
+			else if (a > x_Max) { x_Max = a; }
+			if (b < y_Min) { y_Min = b; }
+			else if (b > y_Max) { y_Max = b; }
+		}
+		cout << (-x_Min + x_Max) * (-y_Min + y_Max) << endl;
+
+	}
+}
