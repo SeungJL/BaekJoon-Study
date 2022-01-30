@@ -1,0 +1,76 @@
+// 백준 1296 팀 이름 정하기
+// 2022년 01월 24일
+
+#include <iostream>
+
+using namespace std;
+
+void loveCount(string name, int love[4]) {
+	for (int i = 0; i < name.size(); i++) {
+		if (name[i] == 'L') {
+			love[0] += 1;
+			continue;
+		}
+		if (name[i] == 'O') {
+			love[1] += 1;
+			continue;
+		}
+		if (name[i] == 'V') {
+			love[2] += 1;
+			continue;
+		}
+		if (name[i] == 'E') {
+			love[3] += 1;
+			continue;
+		}
+	}
+}
+
+int winningFormula(int l, int o, int v, int e) {
+	int percent = ((l + o) * (l + v) * (l + e) * (o + v) * (o + e) * (v + e)) % 100;
+
+	return percent;
+}
+
+int main() {
+
+	int loveY[4] = { 0 }; // 이름에 있는 LOVE개수
+	int max = -1;
+	string winningTeam;
+
+	string name;
+	cin >> name;
+	loveCount(name, loveY); // 이름에 있는 LOVE 개수 카운트
+
+	int num; // 후보 개수
+	cin >> num;
+
+	while(num--) {  // 후보 개수만큼 반복
+		
+		string team;
+		cin >> team;
+
+		int loveT[4] = { 0 }; // 팀 이름에 있는 LOVE개수
+		loveCount(team, loveT);
+
+		loveT[0] += loveY[0];
+		loveT[1] += loveY[1];
+		loveT[2] += loveY[2];
+		loveT[3] += loveY[3];
+
+		int teamPercent = winningFormula(loveT[0], loveT[1], loveT[2], loveT[3]);
+
+		if (teamPercent > max) {
+			max = teamPercent;
+			winningTeam = team;
+		}else if (teamPercent == max) {
+			if (team < winningTeam){ 
+				winningTeam = team;
+			}
+		}
+	}
+
+	cout << winningTeam <<  endl;
+
+	return 0;
+}
