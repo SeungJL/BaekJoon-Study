@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <algorithm>
+#include <utility>
+
+using namespace std;
+int Max = 0;
+int N, M, K;
+int a, b;
+int arr[101][101] = {};
+int visit[101][101] = {};
+int cnt = 0;
+
+void DFS(int a, int b) {
+	if (a < 0 || a >= N || b < 0 || b >= M) { return; }
+	if (visit[a][b] == 0) { return; }
+	visit[a][b] = 0;
+	cnt++;
+	DFS(a + 1, b);
+	DFS(a, b + 1);
+	DFS(a - 1, b);
+	DFS(a, b - 1);
+}
+
+int main() {
+	int m;
+	cin >> N >> M >> K;
+	for (int i = 0; i < K; i++) {
+		cin >> a >> b;
+		arr[a-1][b-1] = 1;
+	}
+	copy(&arr[0][0], &arr[0][0] + 101*101, &visit[0][0]);
+
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N; j++) {
+			if (visit[i][j] == 1) {
+				DFS(i, j);
+				if (cnt > Max) {
+					Max = cnt;
+				}
+				cnt = 0;
+			}
+		}
+	}
+	cout << Max;
+}
