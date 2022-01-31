@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+int N;
+int list[1001] = {};
+int save[1001] = {};
+int Min = 100;
+
+void DP(int index) {
+	save[N] = 0;
+	int Min = 1001;
+	
+	for (int i = N - 1; i >= 0; i--) {
+		
+		if (list[i] == 0) {
+			save[i] = -1;
+			continue;
+		}
+		Min = 1001;
+		for (int j = 1; j <= list[i]; j++) {
+			if (i + j > N ) { 
+				break;
+			}
+			if (save[i + j] < Min && save[i + j] != -1) {
+				Min = save[i + j];
+			}
+		}
+		if (Min == 1001) { save[i] = -1; }
+		else { save[i] = Min + 1; }
+	}
+	return;
+}
+
+int main() {
+
+	cin >> N;
+	for (int i = 0; i < N; i++) {
+		cin >> list[i];
+	}
+	N -= 1; // index를 기준으로 하기 위해
+	if (N == 0) {
+		cout << 0;
+		return 0;
+	}
+	DP(0);
+	cout << save[0];
+}
