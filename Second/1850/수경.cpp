@@ -14,6 +14,8 @@ int main() {
     long long A, B;
     scanf("%lld %lld", &A, &B);
 
+    if (A < B) swap(A, B);
+
     long long cnt = GCD(A, B);
 
     for (long long i = 0; i < cnt; i++) {
