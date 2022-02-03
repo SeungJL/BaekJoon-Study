@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9b7c78ba-36ad-454e-951d-1a777595dcf1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Third/2847/수경.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Third/2847/수경.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +31,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -46,7 +46,7 @@
       <workItem from="1643811010971" duration="83000" />
       <workItem from="1643811097984" duration="324000" />
       <workItem from="1643868430645" duration="15000" />
-      <workItem from="1643883972562" duration="740000" />
+      <workItem from="1643883972562" duration="1238000" />
     </task>
     <servers />
   </component>
