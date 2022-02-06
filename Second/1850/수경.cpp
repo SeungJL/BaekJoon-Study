@@ -8,7 +8,6 @@ long long GCD(long long a, long long b) {
     return GCD(b, a % b);
 }
 
-
 int main() {
 
     long long A, B;

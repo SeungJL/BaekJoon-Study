@@ -19,7 +19,8 @@ int main() {
         else if (i % 3 == 1) {  //i$3==1 -> 카드의 숫지의 십의 자리 숫자
             //num 변수에 십의 자리 숫자 저장
             num += (str[i] - '0') * 10;
-        } else if (i % 3 == 2) {  //i$3==2 -> 카드의 숫지의 일의 자리 숫자
+        }
+        else if (i % 3 == 2) {  //i$3==2 -> 카드의 숫지의 일의 자리 숫자
             //num 변수에 일의 자리 숫자 저장
             num += str[i] - '0';
 
@@ -31,7 +32,8 @@ int main() {
                 }
                 //아니라면 해당 배열 값 증가시키기
                 P[num]++;
-            } else if (str[i - 2] == 'K') {
+            }
+            else if (str[i - 2] == 'K') {
                 //이미 해당 카드가 존재한다면
                 if (K[num] != 0) {
                     cout << "GRESKA" << "\n";
@@ -39,7 +41,8 @@ int main() {
                 }
                 //아니라면 해당 배열 값 증가시키기
                 K[num]++;
-            } else if (str[i - 2] == 'H') {
+            }
+            else if (str[i - 2] == 'H') {
                 //이미 해당 카드가 존재한다면
                 if (H[num] != 0) {
                     cout << "GRESKA" << "\n";
@@ -47,7 +50,8 @@ int main() {
                 }
                 //아니라면 해당 배열 값 증가시키기
                 H[num]++;
-            } else if (str[i - 2] == 'T') {
+            }
+            else if (str[i - 2] == 'T') {
                 //이미 해당 카드가 존재한다면
                 if (T[num] != 0) {
                     cout << "GRESKA" << "\n";
