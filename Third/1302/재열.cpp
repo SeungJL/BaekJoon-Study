@@ -13,6 +13,7 @@ int main() {
 	unordered_map<string, int> u_map;
 	vector<string> vec;
 
+	int max = 0;
 	for (int i = 0; i < n; i++) {
 		string str;
 		cin >> str;
@@ -22,32 +23,19 @@ int main() {
 		else {
 			u_map[str] = 1;
 		}
-	}
 
-	//가장 많이 등장한 문자열 파악
-	int max = 0;
-	string maxStr;
-	bool isRepeated = false;
-	for (auto x : u_map) {
-		if (x.second > max) {		//등장횟수가 최고치 갱신이면,
-			max = x.second;
-			maxStr = x.first;
-			//배열 비우고 지금 문자열 삽입
+		if (u_map[str] > max) {		//최고치 갱신이면,
+			max = u_map[str];
 			while (!vec.empty()) vec.pop_back();
-			vec.push_back(x.first);
-			isRepeated = false;		
+			vec.push_back(str);
 		}
-		if (x.second == max) {		//등장횟수와 기존 최고치와 같으면
-			vec.push_back(x.first);		//배열에 추가
-			isRepeated = true;		//중복신호 true로
+		else if (u_map[str] == max) {		//최고치와 같으면,
+			vec.push_back(str);
 		}
 	}
 
-	if (isRepeated) 
-		sort(vec.begin(), vec.end());
+	sort(vec.begin(), vec.end());
 	cout << vec[0] << endl;
 
 	return 0;
 }
-
-
