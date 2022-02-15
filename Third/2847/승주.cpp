@@ -9,7 +9,7 @@ using namespace std;
 int main() {
 	int N;
 	int list[101] = {};
-	int cnt = 0;i
+	int cnt = 0;
 	cin >> N;
 	for (int i = 0; i < N; i++) {
 		cin >> list[i];

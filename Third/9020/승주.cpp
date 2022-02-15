@@ -26,11 +26,7 @@ int main() {
 			}
 		}
 	}
-	for (int i = 2; i <= 10000; i++) {
-		if (visit[i] == 0) {
-			V.push_back(i);
-		}
-	}
+
 	int T;
 	cin >> T;
 	for (int i = 0; i < T; i++) {
