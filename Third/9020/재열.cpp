@@ -18,13 +18,12 @@ void findPrimeNum() {		//2부터 10000까지 어떤게 소수인지 판단 (에�
 
 void getPartition(int n) {
 	int result;
-	for (int i = n-2; i >= ceil(n/2); i--) {		//i가 n-2일때부터 중간일때까지 (둘중 하나가 1이 되는 경우는 생략)
-		if (isPrime[i]) {
-			if (isPrime[n-i]) 		//i랑 n-i 둘다 소수이면 
-				result = i;		//갱신
+	for (int i = 2; i <= n/2; i++) {		
+		if (isPrime[i] && isPrime[n-i]) {
+			result = i;
 		}
 	}
-	cout << n-result << ' ' << result << endl;
+	cout << result << ' ' << n - result << endl;
 }
 
 
