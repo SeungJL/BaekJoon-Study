@@ -8,8 +8,8 @@
 #include <cmath>
 
 using namespace std;
-multimap<pair<int, int>, int> m; // ½ÃÀÛ°ú ³¡ÀÇ pair ¿¡ ÇØ´çÇÏ´Â value °ªÀ» ´ã°í ÀÖÀ½
-vector <pair<int, int>>V; // ½ÃÀÛ°ú ³¡À» pair·Î ´ã°í ÀÖÀ½
+multimap<pair<int, int>, int> m; // ì‹œì‘ê³¼ ëì˜ pair ì— í•´ë‹¹í•˜ëŠ” value ê°’ì„ ë‹´ê³  ìˆìŒ
+vector <pair<int, int>>V; // ì‹œì‘ê³¼ ëì„ pairë¡œ ë‹´ê³  ìˆìŒ
 multimap<pair<int, int>, int>::iterator iter;
 vector <int> V2;
 int D;
@@ -30,18 +30,14 @@ void DFS(int pos, int cnt) {
 
 	if (find(V2.begin(), V2.end(), pos) != V2.end()) {
 		int i = 0;
+
 		while (1) {
 			if (pos == V[i].first) {
-				if (m.count(make_pair(V[i].first, V[i].second)) == 1) {
-					iter = m.find(make_pair(V[i].first, V[i].second));
+				for (auto iter = m.lower_bound(make_pair(V[i].first, V[i].second)); iter != m.upper_bound(make_pair(V[i].first, V[i].second)); iter++) {
 					DFS(iter->first.second, cnt + iter->second);
 				}
-				else {
-					for (iter = m.lower_bound(make_pair(V[i].first, V[i].second)); iter != m.upper_bound(make_pair(V[i].first, V[i].second)); iter++) {
-						DFS(iter->first.second, cnt + iter->second);
-					}
-				}
 			}
+
 			if (i == V.size() - 1) {
 				break;
 			}
@@ -50,6 +46,7 @@ void DFS(int pos, int cnt) {
 	}
 	DFS(pos + 1, cnt + 1);
 }
+
 int main() {
 	int N;
 	cin >> N >> D;
