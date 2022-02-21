@@ -1,10 +1,7 @@
 // 백준 11501번 주식
 
 #include <iostream>
-#include <algorithm>
-#include <string>
 #include <vector>
-#include <stack>
 
 using namespace std;
 
