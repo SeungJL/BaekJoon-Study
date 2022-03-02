@@ -59,16 +59,14 @@ void dfs(int now, int depth) {
 int main() {
 	cin >> N;
 	
-	for (int i = 1; i <= N; i++) {
-		for (int j = 1; j <= N; j++) {
+	for (int i = 1; i <= N; i++) 
+		for (int j = 1; j <= N; j++) 
 			cin >> S[i][j];
-		}
-	}
 	
 	fill(already, already + N+1, false);
 	dfs(0, 0);		
 
-	std::cout << minValue << endl;
+	cout << minValue << endl;
 
 	return 0;
 }
