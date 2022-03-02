@@ -9,36 +9,24 @@ int N;
 int minValue = 9999999;
 
 bool already[21];		
-bool check1[21][21];
-bool check2[21][21];
 
 //dfs는 N개 중 N/2개의 조합을 만들 목적(+ 조합을 완성하면 팀의 능력치 차이도 구하여 최솟값과 비교함)으로 수행한다.
 void dfs(int now, int depth) {		
 	already[now] = true;
 
 	if (depth == N/2) {
-		for (int i = 0; i <= N; i++) {
-			for (int j = 0; j <= N; j++) {
-				check1[i][j] = false;
-				check2[i][j] = false;
-			}
-		}
 		int team1_sum = 0;
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= N; j++) {
-				if (!check1[i][j] && already[i] && already[j]) {
+				if (already[i] && already[j]) 
 					team1_sum += S[i][j];
-					check1[i][j] = true;
-				}
 			}
 		}
 		int team2_sum = 0;
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= N; j++) {
-				if (!check2[i][j] && !already[i] && !already[j]) {
+				if (!already[i] && !already[j]) 
 					team2_sum += S[i][j];
-					check2[i][j] = true;
-				}
 			}
 		}
 		int value = max(team1_sum, team2_sum) - min(team1_sum, team2_sum);
