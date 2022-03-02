@@ -23,7 +23,6 @@ void dfs(int now, int depth) {
 				check2[i][j] = false;
 			}
 		}
-
 		int team1_sum = 0;
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= N; j++) {
@@ -33,7 +32,6 @@ void dfs(int now, int depth) {
 				}
 			}
 		}
-
 		int team2_sum = 0;
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= N; j++) {
@@ -43,12 +41,11 @@ void dfs(int now, int depth) {
 				}
 			}
 		}
-
 		int value = max(team1_sum, team2_sum) - min(team1_sum, team2_sum);
 		minValue = min(value, minValue);
 	}
 	else {
-		for (int i = now; i <= N; i++) {		//now부터만 탐색! 중복으로 인한 시간 증가 방지
+		for (int i = now+1; i <= N; i++) {		//now부터만 탐색! 중복으로 인한 시간 증가 방지
 			if (!already[i]) 
 				dfs(i, depth + 1);
 		}
