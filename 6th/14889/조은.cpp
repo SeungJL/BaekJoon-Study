@@ -4,24 +4,24 @@
 using namespace std;
 
 int N;
-int S[21][21]; // 1ºÎÅÍ~N±îÁö
-bool check[21]; // ½ºÅ¸Æ®ÆÀÀº true, ¸µÅ©ÆÀÀº false
+int S[21][21]; // 1ë¶€í„°~Nê¹Œì§€
+bool check[21]; // ìŠ¤íƒ€íŠ¸íŒ€ì€ true, ë§í¬íŒ€ì€ false
 int gap = 2100000000;
 
-/* N/2 Á¶ÇÕ ÈÄ ´É·ÂÄ¡ °è»ê */
-void func(int cnt, int cur) { // ÇöÀç ½ºÅ¸Æ®ÆÀÀ¸·Î cur¹ø »ç¶÷±îÁö cnt¸í °í¸¥ »óÅÂ
+/* N/2 ì¡°í•© í›„ ëŠ¥ë ¥ì¹˜ ê³„ì‚° */
+void func(int cnt, int cur) { // í˜„ì¬ ìŠ¤íƒ€íŠ¸íŒ€ìœ¼ë¡œ curë²ˆ ì‚¬ëŒê¹Œì§€ cntëª… ê³ ë¥¸ ìƒíƒœ
 
-	if (cnt == N / 2) { // n/2¸íÀ» °ñ¶ó¼­ ÆÀÀ» ´Ù Â®À¸¸é
+	if (cnt == N / 2) { // n/2ëª…ì„ ê³¨ë¼ì„œ íŒ€ì„ ë‹¤ ì§°ìœ¼ë©´
 		int start = 0, link = 0;
 		for (int i = 1; i <= N; i++) {
-			if (check[i]) { // trueÆÀ, Áï ½ºÅ¸Æ®ÆÀ ´É·ÂÄ¡ °è»ê
+			if (check[i]) { // trueíŒ€, ì¦‰ ìŠ¤íƒ€íŠ¸íŒ€ ëŠ¥ë ¥ì¹˜ ê³„ì‚°
 				for (int j = 1; j <= N; j++) {
 					if (check[j]) {
 						start += S[i][j];
 					}
 				}
 			}
-			else { // falseÆÀ, Áï ¸µÅ©ÆÀ ´É·ÂÄ¡ °è»ê
+			else { // falseíŒ€, ì¦‰ ë§í¬íŒ€ ëŠ¥ë ¥ì¹˜ ê³„ì‚°
 				for (int j = 1; j <= N; j++) {
 					if (!check[j]) {
 						link += S[i][j];
@@ -34,9 +34,9 @@ void func(int cnt, int cur) { // ÇöÀç ½ºÅ¸Æ®ÆÀÀ¸·Î cur¹ø »ç¶÷±îÁö cnt¸í °í¸¥ »óÅ
 		return;
 	}
 
-	for (int i = cur + 1; i <= N; i++) { // ÆÀ Á¶ÇÕ
+	for (int i = cur + 1; i <= N; i++) { // íŒ€ ì¡°í•©
 		check[i] = true;
-		func(cnt + 1, i); // ´ÙÀ½ »ç¶÷À» °í¸£·¯ ÇÑ ´Ü°è ´õ µé¾î°¨ (dfs)
+		func(cnt + 1, i); // ë‹¤ìŒ ì‚¬ëŒì„ ê³ ë¥´ëŸ¬ í•œ ë‹¨ê³„ ë” ë“¤ì–´ê° (dfs)
 		check[i] = false;
 	}
 }
@@ -50,9 +50,9 @@ int main() {
 		for (int j = 1; j <= N; j++) {
 			cin >> S[i][j];
 		}
-	} // ÀÔ·Â
+	} // ì…ë ¥
 
-	func(0, 1);
+	func(0, 0);
 
 	cout << gap;
 
