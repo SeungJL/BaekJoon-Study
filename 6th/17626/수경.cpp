@@ -3,7 +3,11 @@
 using namespace std;
 
 int dp[50001];
-
+/*
+ * 제곱수(four squares)일 경우,
+ * 자연수 하나의 제곱으로 온전히 나타낼 수 있으므로
+ * 1개의 최소 개수의 제곱수 합으로 표현할 수 있다.
+ */
 int main() {
     int n;
     cin >> n;
@@ -11,40 +15,17 @@ int main() {
     for (int i = 2; i <= n; i++) {
         int min = INT_MAX;
         if ((int) sqrt(i) * (int) sqrt(i) == i) {
-            //printf("제곱!!\n");
             min = 1;
         } else {
             for (int j = 1; j * j < i; j++) {
+                //만들 수 있는 조합 중 dp의 최소값 구하기
                 int tmp = dp[j * j] + dp[i - j * j];
                 if (tmp < min) min = tmp;
             }
-            //   printf("min = %d\n",min);
         }
         dp[i] = min;
-        // printf("dp[%d]=%d\n", i, dp[i]);
     }
     cout << dp[n];
 
     return 0;
 }
-/*
- * 1 = 1
- * 2 = 1+1
- * 3 = 1+1+1
- * 4 = 4
- * 5 = 1+4
- * 6 = 1+1+4
- * 7 = 1+1+1+4
- * 8 = 4+4
- * 9 = 9
- * 10 = 1+9
- * 11 = 1+1+9
- * 12 = 4+4+4
- * 13 = 4+9
- * 14 = 1+4+9
- * 15 = 1+1+4+9
- * 16 = 16
- *
- *
- * '1' 2 3 1 2 3 4 2 1 2 3 3 2 3 4 1
- */
