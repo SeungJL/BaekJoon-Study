@@ -9,23 +9,20 @@ int main(void) {
 	int n, k;
 	cin >> n >> k;
 
-	int total=0; // ¹Ù±¸´Ï¿¡ ³ÖÀº °øµéÀÇ ÃÑ °³¼ö
+	int total=0; // ë°”êµ¬ë‹ˆì— ë„£ì€ ê³µë“¤ì˜ ì´ ê°œìˆ˜
 	for (int i = 1; i <= k; i++) {
-		// ÀÏ´Ü Ã³À½¿¡ k°³ÀÇ ¹Ù±¸³ª¿¡ °¢°¢ 1,2,...k°³¾¿ ³Ö´Â´Ù°í °¡Á¤
+		// ì¼ë‹¨ ì²˜ìŒì— kê°œì˜ ë°”êµ¬ë‚˜ì— ê°ê° 1,2,...kê°œì”© ë„£ëŠ”ë‹¤ê³  ê°€ì •
 		total += i;
 	}
 
 	if(total > n) {
 		cout << -1;
-		return 0;
 	}
 	else if((n-total)%k == 0) {
 		cout << k-1;
-		return 0;
 	}
 	else {
 		cout << k;
-		return 0;
 	}
 
 	return 0;
