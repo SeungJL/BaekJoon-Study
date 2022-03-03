@@ -4,7 +4,7 @@
 using namespace std;
 
 int a[10001] = { 0 };
-int dp[10001]; // dp[n]: n¹øÂ° Æ÷µµÁÖ±îÁö ÃÖ´ë·Î ¸¶½Ç ¼ö ÀÖ´Â ¾ç
+int dp[10001]; // dp[n]: në²ˆì§¸ í¬ë„ì£¼ê¹Œì§€ ìµœëŒ€ë¡œ ë§ˆì‹¤ ìˆ˜ ìˆëŠ” ì–‘
 
 int main() {
 	ios::sync_with_stdio(0);
@@ -17,21 +17,17 @@ int main() {
 	}
 
 	for(int i=0; i<=n; i++) {
-		if(i<=2) { // ÃÊ±â°ª ¼³Á¤
+		if(i<=2) { // ì´ˆê¸°ê°’ ì„¤ì •
 			for(int j=0; j<=i; j++)
 				dp[i] += a[j];
 		}
-		else { // Á¡È­½Ä
+		else { // ì í™”ì‹
 			dp[i] = dp[i-3] + a[i-1] + a[i];
 			dp[i] = max(dp[i], dp[i-2] + a[i]);
 			dp[i] = max(dp[i], dp[i-1]);
 		}
 	}
 
-	cout << endl;
-	for (int i = 0; i <= n; i++) cout << dp[i] << endl;
-
-	cout << endl;
 	cout << dp[n];
 	
 	return 0;
