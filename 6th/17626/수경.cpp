@@ -16,7 +16,8 @@ int main() {
         int min = INT_MAX;
         if ((int) sqrt(i) * (int) sqrt(i) == i) {
             min = 1;
-        } else {
+        }
+        else {
             for (int j = 1; j * j < i; j++) {
                 //만들 수 있는 조합 중 dp의 최소값 구하기
                 int tmp = dp[j * j] + dp[i - j * j];
