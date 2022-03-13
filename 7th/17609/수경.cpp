@@ -15,13 +15,14 @@ int solve(string str) {
 
     while (i <= j) {
         if (str[i] != str[j]) {
-
+    // abbab
             if (cnt == 0) {
                 cnt++;
                 if (str[i] == str[j - 1] && str[i + 1] == str[j]) {
                     if (isPalindrome(str.substr(i, j - i))) return 1;
                     if (isPalindrome(str.substr(i + 1, j - i))) return 1;
-                } else if (str[i] == str[j - 1]) j--;
+                }
+                else if (str[i] == str[j - 1]) j--;
                 else if (str[i + 1] == str[j]) i++;
                 else return 2;
             } else return 2;
