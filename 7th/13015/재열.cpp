@@ -1,8 +1,3 @@
-//백준 13015
-//별 찍기 - 23
-//태그: 구현
-//난이도: 실버5
-
 #include <iostream>
 #include <string>
 
