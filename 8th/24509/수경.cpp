@@ -2,19 +2,6 @@
 
 using namespace std;
 
-class Student{
-private:
-    int id, kor, eng, math, sci;
-public:
-    Student(int _id, int _kor, int _eng, int _math, int _sci){
-        id = _id;
-        kor = _kor;
-        eng = _eng;
-        math = _math;
-        sci = _sci;
-    }
-};
-
 
 bool compare(pair<int, int> a, pair<int, int> b){
     if(a.first == b.first) return a.second < b.second;
