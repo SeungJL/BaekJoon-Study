@@ -20,6 +20,7 @@ int main() {
         scanf("%d", &tmp);
         ele.push_back(tmp);
     }
+
     for (int i = idx.size() - 1; i >= 0; i--) {
         C.push_back(ele[idx[i]]);
     }
@@ -38,3 +39,21 @@ int main() {
 
     return 0;
 }
+/*
+ *
+ * 4
+ * 0 1 1 0
+ *
+ * 1 2 3 4
+ * 큐 스 스 큐
+ *
+ * 3
+ * 2 4 7
+ *
+ * 2 삽입
+ * 1(큐)-> 2 / 1 return
+ * 2(스) -> 2 / 1 return
+ * 3(스) -> 3 / 1 return
+ * 4(큐) -> 1 / 4 return
+ *
+ */
