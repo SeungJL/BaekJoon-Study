@@ -1,7 +1,7 @@
-#include <iostream>
+ï»¿#include <iostream>
 using namespace std;
 
-int lc[27], rc[27]; // lc[i]/rc[i]: i¹ø ³ëµåÀÇ left/right-child
+int lc[27], rc[27]; // lc[i]/rc[i]: ië²ˆ ë…¸ë“œì˜ left/right-child
 
 void preorder(int cur) {
 	cout << char(cur+'A'-1);

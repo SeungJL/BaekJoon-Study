@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 using namespace std;
 
 int cube[101][101];
@@ -9,7 +9,7 @@ int main(void) {
 	for(int i=1; i<=N; i++)
 		for(int j=1; j<=M; j++)
 			cin >> cube[i][j];
-	// �Է�
+	// 입력
 
 	int ans = 2*N*M;
 	for(int i=1; i<=N; i++) {
