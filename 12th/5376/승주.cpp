@@ -24,7 +24,7 @@ long long GCD(long long x, long long y) {
 
 int main() {
 	int T;
-	long long x, y; // ºÐÀÚ,ºÐ¸ð
+	long long x, y; // ï¿½ï¿½ï¿½ï¿½,ï¿½Ð¸ï¿½
 	string str, str1, str2;
 	cin >> T;
 
