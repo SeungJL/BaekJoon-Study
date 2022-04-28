@@ -1,21 +1,38 @@
-//1940번: 01타일
+//9658번: 돌게임4
+//9658번: 돌게임 4
+//몰라서 구글링함.
 #include <iostream>
 using namespace std;
 
 int n;
-long long arr[1000001];
 
-//몇개 구해보니까 arr[n]=arr[n-1]+arr[n-2] 조건이 성립했다.
-//이유를 생각해보면 arr[n-1] 종류에 끝에 1붙인것과 arr[n-2]종류에 끝에 00붙인것의 합이 arr[n]이므로
-//arr[n]=arr[n-1]+arr[n-2]가 성립한다.
+//상근이가 이기면1, 지면 0
+int dp[1001];
 
 int main(){
-    cin>>n;
-    arr[1]=1;
-    arr[2]=2;
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
 
-    for(int i=3; i<=n; i++){
-        arr[i]=(arr[i-1]+arr[i-2])%15746;
+    cin>>n;
+    dp[1]=0;
+    dp[2]=1;
+    dp[3]=0;
+    dp[4]=1;
+
+    for(int i=5; i<=n; i++){
+
+        // i-4, i-3, i-1에서 모두 상근이가 이기는 상태이면 i번째에는 상근이는 진다
+        // i-4, i-3, i-1 에서 하나라도 지는경우 있으면 i번째에는 이길 수 있다.
+        if(dp[i-4] && dp[i-3] && dp[i-1]){
+            dp[i]=0;
+        }else{
+            dp[i]=1;
+        }
     }
-    cout<<arr[n]<<"\n";
+
+  if(dp[n]){
+      cout<<"SK"<<"\n";
+  }else{
+      cout<<"CY"<<"\n";
+  }
 }
