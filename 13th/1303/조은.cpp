@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <queue>
 using namespace std;
 
@@ -39,8 +39,8 @@ int main() {
 	cin.tie(0);
 
 	cin >> N >> M;
-	for(int i=1; i<=M; i++) { // ¼¼·Î
-		for(int j=1; j<=N; j++) { // °¡·Î
+	for(int i=1; i<=M; i++) { // ì„¸ë¡œ
+		for(int j=1; j<=N; j++) { // ê°€ë¡œ
 			cin >> fight[i][j];
 		}
 	}
