@@ -24,7 +24,7 @@ void bfs(int y, int x) {
 		for(int i=0; i<8; i++) {
 			int ny = cur.Y + dy[i];
 			int nx = cur.X + dx[i];
-			if(ny<1 || ny>N || nx<1 || nx>M) continue;
+			if(ny<1 || ny>N-1 || nx<1 || nx>M) continue;
 			if(dist[ny][nx] >= 0) continue;
 			q.push( {ny,nx} );
 			dist[ny][nx] = dist[cur.Y][cur.X] + 1;
