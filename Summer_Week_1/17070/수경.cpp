@@ -12,9 +12,7 @@ int cnt;
 int house[17][17];
 
 void DFS(int i, int j, int direct) {
-    printf("%d %d %d\n", i, j, direct);
     if (i == N && j == N) {
-        printf("cnt ++\n");
         cnt++;
         return;
     }
@@ -23,20 +21,20 @@ void DFS(int i, int j, int direct) {
             if (house[i + di[0]][j + dj[0]] != 1) DFS(i + di[0], j + dj[0], dir[0]);
         }
         if (i + di[2] >= 1 && i + di[2] <= N && j + dj[2] >= 1 && j + dj[2] <= N) {
-            if (house[i + di[2]][j + dj[2]] != 1) DFS(i + di[2], j + dj[2], dir[2]);
+            if (house[i + di[0]][j + dj[0]] != 1 && house[i + di[1]][j + dj[1]] != 1 &&
+                house[i + di[2]][j + dj[2]] != 1)
+                DFS(i + di[2], j + dj[2], dir[2]);
         }
-    }
-
-    else if (direct == 1) {
-        if (i + di[1] >= 1 && i + di[1] <= N && j + dj[1] >= 1 && j + dj[1] <= N)  {
+    } else if (direct == 1) {
+        if (i + di[1] >= 1 && i + di[1] <= N && j + dj[1] >= 1 && j + dj[1] <= N) {
             if (house[i + di[1]][j + dj[1]] != 1) DFS(i + di[1], j + dj[1], dir[1]);
         }
         if (i + di[2] >= 1 && i + di[2] <= N && j + dj[2] >= 1 && j + dj[2] <= N) {
-            if (house[i + di[2]][j + dj[2]] != 1) DFS(i + di[2], j + dj[2], dir[2]);
+            if (house[i + di[0]][j + dj[0]] != 1 && house[i + di[1]][j + dj[1]] != 1 &&
+                house[i + di[2]][j + dj[2]] != 1)
+                DFS(i + di[2], j + dj[2], dir[2]);
         }
-    }
-
-    else if (direct == 2) {
+    } else if (direct == 2) {
         if (i + di[0] >= 1 && i + di[0] <= N && j + dj[0] >= 1 && j + dj[0] <= N) {
             if (house[i + di[0]][j + dj[0]] != 1) DFS(i + di[0], j + dj[0], dir[0]);
         }
@@ -44,7 +42,9 @@ void DFS(int i, int j, int direct) {
             if (house[i + di[1]][j + dj[1]] != 1) DFS(i + di[1], j + dj[1], dir[1]);
         }
         if (i + di[2] >= 1 && i + di[2] <= N && j + dj[2] >= 1 && j + dj[2] <= N) {
-            if (house[i + di[2]][j + dj[2]] != 1) DFS(i + di[2], j + dj[2], dir[2]);
+            if (house[i + di[0]][j + dj[0]] != 1 && house[i + di[1]][j + dj[1]] != 1 &&
+                house[i + di[2]][j + dj[2]] != 1)
+                DFS(i + di[2], j + dj[2], dir[2]);
         }
     }
 
