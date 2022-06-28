@@ -1,15 +1,15 @@
-// 실패 (시간초과)
-
 #include <iostream>
-#include <string>
-#define MAX 101
+#include <stack>
 using namespace std;
 
 int main() {
 	string str;
 	cin >> str;
-	int N = str.size(); // cursor
-	// 만약 N=2로 이동하면, 커서가 세번째 글자의 '왼쪽'에 있다는 의미
+	int N = str.length();
+
+	stack<char> left, right; // 커서 기준 왼쪽, 오른쪽
+	for (int i = 0; i < N; i++)
+		left.push(str[i]);
 
 	int M;
 	cin >> M;
@@ -19,28 +19,34 @@ int main() {
 		cin >> c;
 		switch (c) {
 		case 'L':
-			if(N > 0) N--;
+			if(left.empty()) continue;
+			right.push(left.top());
+			left.pop();
 			break;
 		case 'D':
-			if(N < str.size()) N++;
+			if(right.empty()) continue;
+			left.push(right.top());
+			right.pop();
 			break;
 		case 'B':
-			if(N > 0) {
-				str.erase(N-1, 1);
-				N--;
-			}
+			if(left.empty()) continue;
+			left.pop();
 			break;
 		case 'P':
 			cin >> ch;
-			string s = "";
-			s += ch;
-			str.insert(N, s);
-			N++;
+			left.push(ch);
 			break;
 		}
 	}
 
-	cout << str;
+	while(!left.empty()) {
+		right.push(left.top());
+		left.pop();
+	}
+	while (!right.empty()) {
+		cout << right.top();
+		right.pop();
+	}
 
 	return 0;
 }
