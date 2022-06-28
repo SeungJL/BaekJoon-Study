@@ -7,7 +7,7 @@ int main() {
 	cin >> str;
 	int N = str.length();
 
-	stack<char> left, right; // Ä¿¼­ ±âÁØ ¿ŞÂÊ, ¿À¸¥ÂÊ
+	stack<char> left, right; // ì»¤ì„œ ê¸°ì¤€ ì™¼ìª½, ì˜¤ë¥¸ìª½
 	for (int i = 0; i < N; i++)
 		left.push(str[i]);
 

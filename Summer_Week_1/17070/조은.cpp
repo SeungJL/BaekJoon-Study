@@ -3,12 +3,12 @@ using namespace std;
 
 int N;
 int arr[17][17];
-int dx[3] = { 1, 0, 1 }; // °¡·Î, ¼¼·Î, ´ë°¢¼± ¼ø
+int dx[3] = { 1, 0, 1 }; // ê°€ë¡œ, ì„¸ë¡œ, ëŒ€ê°ì„  ìˆœ
 int dy[3] = { 0, 1, 1 };
 int ans = 0;
 
 void dfs(int y, int x, int state) {
-	// state: °¡·Î:0, ¼¼·Î:1, ´ë°¢¼±:2
+	// state: ê°€ë¡œ:0, ì„¸ë¡œ:1, ëŒ€ê°ì„ :2
 	if((y==N-1) && (x==N-1)) ans++;
 	for(int dir=0; dir<3; dir++) {
 		if((state==0 && dir==1) || (state==1 && dir==0)) continue;

@@ -5,7 +5,7 @@ using namespace std;
 
 int N, M;
 int maze[MAX][MAX];
-int dist[MAX][MAX]; // -1Àº ¹æ¹®X¸¦ ÀÇ¹Ì
+int dist[MAX][MAX]; // -1ì€ ë°©ë¬¸Xë¥¼ ì˜ë¯¸
 int dx[4] = { 0, 1, 0, -1 };
 int dy[4] = { 1, 0, -1, 0 };
 
