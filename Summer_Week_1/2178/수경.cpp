@@ -1,5 +1,7 @@
 /*
 ❗️ 최단 거리 문제에서 DFS를 사용하지 않는 이유는 가능한 모든 경로를 탐색하는 DFS의 특징 상 BFS에 비해 효율적이지 않기 때문이다.
+ → dfs 함수의 파라미터에 지금 칸까지 이동한 칸 수를 추가하여 풀 수 있음
+
 
 void DFS(int y, int x, int cnt) {
     printf("%d %d %d\n", y, x, cnt);
@@ -31,7 +33,7 @@ int N, M;
 
 
 void BFS() {
-    queue<pair<int, int>> Q;
+    queue <pair<int, int>> Q;
     Q.push(make_pair(0, 0));
     cnt[0][0] = 1;
     while (!Q.empty()) {
@@ -45,7 +47,7 @@ void BFS() {
             if (maze[i + di[k]][j + dj[k]] == 0) continue;
             Q.push(make_pair(i + di[k], j + dj[k]));
             maze[i + di[k]][j + dj[k]] = 0; // 써주면 메모리 초과 해결
-            cnt[i + di[k]][j + dj[k]] = min(cnt[i + di[k]][j + dj[k]], cur_cnt + 1);    // 최단거리
+            cnt[i + di[k]][j + dj[k]] = cur_cnt + 1;    // 최단거리
         }
     }
 }
