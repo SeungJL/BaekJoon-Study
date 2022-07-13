@@ -34,9 +34,7 @@ void dfs(string s, int now, int depth, vector<char> alphabets) {
 }
 
 
-int main() {
-
-
+int main(){
     cin >> n >> m;
 
 
