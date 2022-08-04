@@ -36,28 +36,28 @@ void initialize() {
     roma.push_back({"M", 1000});
 }
 
-int romaToArabic(string str) {
+int romanToArabic(string str) {
     for (int i = 0; i < roma.size(); i++) {
         if (roma[i].first == str) return roma[i].second;
     }
     return -1;
 }
 
-int convertRomaToArabic(string str) {
+int convertRomanToArabic(string str) {
     int num = 0;
     for (int i = 0; i < str.size(); i++) {
-        int tmp = romaToArabic(str.substr(i, 2));
+        int tmp = romanToArabic(str.substr(i, 2));
         if (tmp != -1) {
             num += tmp;
             i++;
         } else {
-            num += romaToArabic(str.substr(i, 1));
+            num += romanToArabic(str.substr(i, 1));
         }
     }
     return num;
 }
 
-string convertArabicToRome(int num) {
+string convertArabicToRoman(int num) {
     string resultStr = "";
     for (int i = roma.size() - 1; i >= 0; i--) {
         while (num - roma[i].second >= 0) {
@@ -75,8 +75,8 @@ int main() {
 
     string A, B;
     cin >> A >> B;
-    int ans = convertRomaToArabic(A) + convertRomaToArabic(B);
-    string ansString = convertArabicToRome(ans);
+    int ans = convertRomanToArabic(A) + convertRomanToArabic(B);
+    string ansString = convertArabicToRoman(ans);
     cout << ans << "\n" << ansString;
 
 
