@@ -1,55 +1,61 @@
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include <queue>
+#include<iostream>
+#include<queue>
+#include<vector>
+#include<algorithm>
+
 using namespace std;
 
-int n, m;
-int check[20001];
-vector<vector<int> > graph(20001);
-vector<int> ans;
-int cnt = 1;
+int N, M;
+vector<int>graph[20001];
+bool visit[20001];
+int dis, shed, maxD;
+vector<int>shedN;
 
-void bfs() {
-	queue<int> q;
-	q.push(1);
-	check[1] = 1;
-	while (!q.empty()) {
-		int cur = q.front();
+void bfs(int n)
+{
+	queue<pair<int, int>>q;
+	q.push(make_pair(n, 0));
+	visit[n] = true;
+	while (!q.empty())
+	{
+		int cur = q.front().first;
+		int curD = q.front().second;
+		if (curD > maxD)
+		{
+			maxD = curD;
+			shedN.clear();
+		}
+		if (maxD == curD)
+			shedN.push_back(cur);
 		q.pop();
-		for (auto& next : graph[cur]) {
-			if (check[next])continue;
-			if (check[cur] + 1 == cnt) {
-				check[next] = check[cur] + 1;
-				q.push(next);
-				ans.push_back(next);
-			}
-			else if (check[cur] + 1 > cnt) {
-				ans.clear();
-				check[next] = check[cur] + 1;
-				q.push(next);
-				cnt = check[next];
-				ans.push_back(next);
+		for (int& next : graph[cur])
+		{
+			if (visit[next])continue;
+			visit[next] = true;
 
-			}
+			q.push(make_pair(next, curD + 1));
+
+
 		}
 	}
 }
 
-int main(void) {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
+int main()
+{
+	cin >> N >> M;
 
-	cin >> n >> m;
-	for (int i = 0; i < m; i++) {
-		int u, v;
-		cin >> u >> v;
-		graph[u].push_back(v);
-		graph[v].push_back(u);
+	int A_i, B_i;
+	for (int i = 0; i < M; i++)
+	{
+		cin >> A_i >> B_i;
+		graph[A_i].push_back(B_i);
+		graph[B_i].push_back(A_i);
+
 	}
-	bfs();
-	sort(ans.begin(), ans.end());
-	cout << ans[0] << " " << check[ans[0]] - 1 << " " << ans.size();
 
-	return 0;
+	bfs(1);
+	sort(shedN.begin(), shedN.end());
+	//첫 번째는 숨어야 하는 헛간 번호, 두 번째는 그 헛간까지의 거리를, 세 번째는 그 헛간과 같은 거리를 갖는 헛간의 개수
+	cout << shedN.front() << " " << maxD << " " << shedN.size();
+
 }
