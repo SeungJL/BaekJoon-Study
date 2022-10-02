@@ -27,3 +27,4 @@ int get_score(){
     return ans;
 
 }
+//10.02 승주
