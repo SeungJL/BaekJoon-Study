@@ -88,20 +88,20 @@ int solve(int from, int to) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 
-    // freopen("input.txt", "rt", stdin);
+	// freopen("input.txt", "rt", stdin);
 
 	int TC;
 	cin >> TC;
 	while (TC--) {
-        /* input */
+		/* input */
 		int from, to;
 		cin >> from >> to;
 
-        /* solve */
+		/* solve */
 		int res = solve(from, to);
 		(res >= 0) ? cout << res << "\n" : cout << "Impossible\n";
 	}

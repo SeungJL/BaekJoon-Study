@@ -15,18 +15,18 @@ int main() {
 	int TC;
 	cin >> TC;
 	while (TC--) {
-        /* input */
+		/* input */
 		int N;
 		cin >> N;
-		
+
 		int arr[N];
 		for (int i=0; i<N; i++) cin >> arr[i];
 
-        /* solve */
+		/* solve */
 		sort(arr, arr + N);
-		
+
 		int diff;       // 인접한 통나무의 높이 차
-        int max_diff;   // 통나무 건너뛰기의 난이도, 인접한 통나무 간의 높이 차의 최댓값
+		int max_diff;   // 통나무 건너뛰기의 난이도, 인접한 통나무 간의 높이 차의 최댓값
 		max_diff = arr[1] - arr[0]; // 첫 번째 통나무와 마지막 통나무의 높이 차
 		for (int i=0; i<N-2; i++) {
 			diff = arr[i+2] - arr[i];

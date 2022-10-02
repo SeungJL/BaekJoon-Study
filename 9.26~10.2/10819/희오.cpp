@@ -37,20 +37,20 @@ void dfs(int depth, int visited, int res, int last) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 
-    // freopen("input.txt", "rt", stdin);
+	// freopen("input.txt", "rt", stdin);
 
-    /* input */
+	/* input */
 	cin >> N;
 	for (int i=0; i<N; i++) cin >> input[i];
 
-    /* solve */
+	/* solve */
 	for (int i=0; i<N; i++) {
 		dfs(1, 1 << i, 0, input[i]);
 	}
-	
+
 	cout << max_res << "\n";
 }
