@@ -29,3 +29,5 @@ int main() {
 	} while (next_permutation(arr, arr + N));
 	cout << Max;
 }
+
+// 희오 to 승주
