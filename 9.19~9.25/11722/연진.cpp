@@ -18,8 +18,8 @@ int main()
 
   for (int i = N - 1; i >= 0; i--)
   {
-    int longest = 0; // arr[i] 보다 작은 원소의 최댓값
-    map<int, int>::iterator it;
+    int longest = 0;            // arr[i] 보다 작은 원소의 최댓값
+    map<int, int>::iterator it; // 가장큰 원소 arr[i], 길이
     for (it = m.begin(); it != m.end(); ++it)
     {
       if (it->first < arr[i])
