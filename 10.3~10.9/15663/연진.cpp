@@ -30,7 +30,6 @@ void make_pair(int len)
 
 int main()
 {
-
 	cin >> N >> M;
 	for (int i = 0; i < N; i++)
 	{
@@ -41,6 +40,6 @@ int main()
 	sort(num, num+10);
 	init();
 	make_pair(0);
-	
+
 	return 0;
 }
