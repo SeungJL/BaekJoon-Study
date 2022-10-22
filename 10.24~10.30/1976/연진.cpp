@@ -42,15 +42,7 @@ void check_visit(int start)
 	}
 }
 
-int main()
-{
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
-
-	// 입력받기
-	init();
-	check_visit(travel[0]);
+void get_answer(){
 
 	for (int i = 0; i < M; i++)
 	{
@@ -61,6 +53,19 @@ int main()
 		}
 	}
 	cout << "YES";
+}
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	// 입력받기
+	init();
+	check_visit(travel[0]);
+	get_answer();
+
 
 	return 0;
 }
