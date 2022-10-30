@@ -49,7 +49,7 @@ void get_answer(){
 		if (visited[travel[i]] == 0)
 		{
 			cout << "NO";
-			return 0;
+			return ;
 		}
 	}
 	cout << "YES";
