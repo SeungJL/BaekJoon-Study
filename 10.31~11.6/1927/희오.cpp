@@ -12,9 +12,11 @@ int main() {
 
 	// freopen("input.txt", "rt", stdin);
 
+	/* input */
 	int N, input;
 	cin >> N;
 
+	/* solve */
 	priority_queue<int, vector<int>, greater<int>> min_heap;
 
 	while (N--) {
