@@ -18,7 +18,7 @@ void insertHeap(heap *hp,int data) {
 	hp->arr[here] = data;
 }
 void swap(int* a, int* b) {
-	int tmp = *a;
+	int tmp = *;
 	*b=*a;
 	*a = tmp;
 }
@@ -36,7 +36,6 @@ int deleteHeap(heap* hp) {
 		if (child + 1 <= hp->size && hp->arr[child] > hp->arr[child + 1])
 			child++;
 		if (child > hp->size || hp->arr[child] > hp->arr[parent]) break;
-		//왜인지 모르겠지만 자식과 부모가 같을때에도 실행시켜줘야 함
 		swap(&hp->arr[parent], &hp->arr[child]);
 		parent = child;
 	}
