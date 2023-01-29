@@ -51,6 +51,7 @@ void get_score(int x, int y, int target) {
 void dfs(int x, int y, int direc, int depth) {
 
     if(depth == k) return;
+    
     int nx = x;
     int ny = y;
     int next_direc = direc;
