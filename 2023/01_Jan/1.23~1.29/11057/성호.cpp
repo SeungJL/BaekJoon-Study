@@ -64,3 +64,4 @@ int main(void)
 	}
 	cout << arr[input-1][10];
 }
+
