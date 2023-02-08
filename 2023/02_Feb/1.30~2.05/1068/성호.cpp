@@ -1,57 +1,44 @@
 #include <iostream>
 #include <vector>
-#define endl '\n'
 using namespace std;
 
-vector<int> v[51];
-vector<int>::iterator iter;
+vector<int> tree[51];
+int answer,erase;
+
 void run(int now)
 {
-
-    for(int i=0;i<v[now].size();i++)
+  int size = tree[now].size();
+  for (auto iter = tree[now].begin(); iter != tree[now].end(); iter++)
+  {
+    if(*iter==erase)
     {
-
-        run(v[now][i]);
+      size -= 1;
+      continue;
     }
-    v[now].push_back(-1);
+    run(*iter);
+  }
+  if(size==0)
+    answer++;
 }
 
 int main(void)
 {
-    cin.tie(NULL);
-    cout.tie(NULL);
-    cin.sync_with_stdio(false);
-
-    int n,x;cin>>n;
-
-    for(int i=0;i<n;i++)
-    {
-        cin>>x;
-        v[x].push_back(i);
-    }
-    cin>>x;
-    run(x);
-
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<v[i].size();j++)
-        {
-            if(v[i][j]==x)
-            {
-                iter=v[i].begin()+j;
-
-                v[i].erase(iter);
-            }
-        }
-    }
-
-    int ans=0;
-    for(int i=0;i<n;i++)
-    {
-        if(v[i].empty())
-        {
-            ans++;
-        }
-    }
-    cout<<ans<<endl;
+  int n,input,start;
+  cin >> n;
+  for (int i = 0; i < n;i++)
+  {
+    cin >> input;
+    if(input!=-1)
+      tree[input].push_back(i);
+    else
+      start = i;
+  }
+  cin >> erase;
+  if(erase==start)
+  {
+    cout << 0;
+    return 0;
+  }
+  run(start);
+  cout << answer;
 }
