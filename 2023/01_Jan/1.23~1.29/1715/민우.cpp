@@ -25,7 +25,7 @@ int main() {
         pq.pop();
 
         // cout << first << " " << second << "\n";
-
+ㅈ
         sum += first + second;
         pq.push(first + second);
     }

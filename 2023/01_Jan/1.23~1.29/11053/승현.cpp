@@ -3,7 +3,8 @@ using namespace std;
 int n;
 int a[1001];
 int dp[1001];
-int main(){
+int main()
+{
     cin >> n;
     for(int i = 1; i <= n; i++){
         cin >> a[i];

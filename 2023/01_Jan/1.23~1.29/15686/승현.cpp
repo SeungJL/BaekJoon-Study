@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+
 using namespace std;
 int n,m;
 int a[51][51];
